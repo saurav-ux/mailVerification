@@ -1,0 +1,27 @@
+/* Reset default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body{
+   background-image: url(bgssssss.avif);
+   background-repeat: no-repeat;
+   background-size: 1100px;
+   background-position: center;
+}
+/* Center the content horizontally and vertically */
+.centered-box {
+    background-color: #496B99;
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 49%;
+    width: 20%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 1px solid #ccc; /* Add border for the div */
+    padding: 20px; /* Add padding inside the div */
+    border-radius: 8px; /* Add border radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+}

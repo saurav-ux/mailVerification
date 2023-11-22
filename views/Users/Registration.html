@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register.css">
+    <title>SignIn</title>
+</head>
+
+<body>
+    <h1>User Registration Form</h1>
+    <a href="login.html">Login</a>
+    <form class="form">
+
+        <input type="text" name="name" placeholder="Enter Name" required>
+        <br>
+        <input type="email" name="email" placeholder="Enter Email" required>
+        <br>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <br>
+        <!-- <input type="file" name="image" required> -->
+        <br><br>
+        <input type="submit" value="Register">
+    </form>
+    <br>
+    <div id="response"></div>
+    <script>
+        const form1 = document.querySelector('.form');
+        const responseElement = document.getElementById('response');
+        form1.addEventListener('submit', event => {
+            event.preventDefault();
+            const formData = new FormData(form1)
+            const data = Object.fromEntries(formData)
+            <!-- console.log(data); -->
+            fetch('http://localhost:5777/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(response => response.json()).then(data => {
+                console.log(data)
+                responseElement.innerHTML = data.message;
+                form1.reset();
+            })
+                .catch(error => {
+                    console.error('Error:', error)
+                    responseElement.innerHTML = 'An error occurred while processing your request.';
+                });
+        })
+    </script>
+</body>
+
+</html>
