@@ -87,7 +87,7 @@ userRouter.get("/:id", async (req, res) => {
       { _id: req.params.id },
       { $set: { isVerified: 1 } }
     );
-    res.redirect("http://127.0.0.1:5500/views/Users/status.html");
+    res.redirect("https://verifystatus.netlify.app");
   } catch (error) {
     console.error("Can't Update: ", error);
   }
